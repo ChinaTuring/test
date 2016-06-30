@@ -11,7 +11,7 @@ P2P点播直播iOS-SDK
 ## 文档
 
 ### P2PModule接口API
- `+(int) init:(NSString *)appId appKey:(NSString *)appKey appSecretKey:(NSString  			*)appSecretKey`
+> +(int) init:(NSString *)appId appKey:(NSString *)appKey appSecretKey:(NSString *)appSecretKey
  
 	描述:    初始化p2p模块，整个应用中只需初始化一次.
 	参数:    appId	 		    授权id
@@ -31,7 +31,7 @@ P2P点播直播iOS-SDK
 	    [P2PModule init:appID appKey:key appSecretKey:secret];
 		..... //省略代码
 	}  
-`+release()`
+> +release()
 	
 	描述:   销毁p2p模块，此操作之后需要重新init才能重新启动p2p.
 	返回值:  无。
@@ -40,27 +40,27 @@ P2P点播直播iOS-SDK
 	- (void)applicationWillTerminate:(UIApplication *)application {
 		[P2PModule release];
 	}
-`+ (void) setDelegate: (id<P2PStreamDelegate>) delegate`
+> +(void) setDelegate: (id<P2PStreamDelegate>) delegate
 	
 	描述:    设置事件代理，通过代理能够探测到p2p模块的事件状态，主要包含两类事件
 			 普通事件和错误事件.
 	参数:    delegate      代理对象
 	返回值:  无.
 
-`+ (NSString *) version`
+> +(NSString *) version
 
 	描述:    打印库版本信息。
 	返回值:  NSString*  当前版本的字符串信息.
-`+ (void) enableDebug`
+> +(void) enableDebug
 
 	描述:    日志开关，允许输出debug 信息.
 	返回值:   无。
-`+ (void) disableDebug`
+> +(void) disableDebug
 
 	描述:    日志开关，关闭输出debug 信息.
 	返回值:   无.
 ### LiveController接口API
-`+ (NSString *) load: (NSString *)channel resolution:(NSString *)resoltion 					   startTime:(double)startTime`
+> +(NSString *) load: (NSString *)channel resolution:(NSString *)resoltion 					   startTime:(double)startTime
 
 	描述:    加载p2p直播频道，通过输入channel等参数，返回可供播放器播放的p2p uri.
      		 若加载失败，P2PStreamDelegate 会返回相应错误码.
@@ -81,12 +81,12 @@ P2P点播直播iOS-SDK
 	   .... //省略
 	}
 
-`+ (void) unload`
+> +(void) unload
 
 	描述:     退出当前播放。
 	返回值:    无。
 ### VodController接口API
-`+ (NSString *) load: (NSString *)uri resolution:(NSString *)resoltion    						startTime:(double)startTime`
+> +(NSString *) load: (NSString *)uri resolution:(NSString *)resoltion    						startTime:(double)startTime
 
 	描述:     加载p2p点播频道，通过输入uri等参数，返回可供播放器播放的p2p uri,
 			  若加载失败，P2PStreamDelegate 会返回相应错误码.
@@ -106,15 +106,15 @@ P2P点播直播iOS-SDK
 	   [player load:newUri];
 	   .... //省略
 	}
-`+ (void) unload`
+> +(void) unload
     
     描述:     卸载uri,当播放器停止播放时调用.
     返回值:    无.
-`+ (void) pause`
+> +(void) pause
 	
 	描述:    暂停播放.
 	返回值:  无.
-`+ (void) resume`
+> +(void) resume
 
 	描述:    恢复播放.
 	返回值:  无.
